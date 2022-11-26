@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="./styles/font-awesome.css">
 
 <!-- normalize.css ujednolicenie stylów przegladarki -->
-<link rel="stylesheet" href="{(url_for('static', filename='styles/normalize.css'))}"/>
+<link rel="stylesheet" href="{{url_for('static', filename='styles/normalize.css')}}"/>
 
 <!-- moje style css -->
-<link rel="stylesheet" href="{(url_for('static', filename='styles/main.css'))}"/>
+<link rel="stylesheet" href="{{url_for('static', filename='styles/main.css')}}"/>
     
     <title>moje zainteresowania</title>
 </head>
@@ -65,7 +65,7 @@
       <div class="columns-container columns-2-container">
 
          <div class="columns about-image">
-             <img src="./styles/images/pexels-eberhard-grossgasteiger-2088170.jpg" alt="niebo">
+             <img href="{{url_for('static', filename='images/p1.jpg')}}"/>
          </div>
 
          <div class="columns">
@@ -133,7 +133,7 @@
         
                     <div class="column photos-section">
                         <figure>
-                          <img src="https://64.media.tumblr.com/1ae5a85e6974b7046716681760cccb58/tumblr_pgpnnqIIjO1s9bch4_540.jpg" alt="rayla">
+                          <img href="{{url_for('static', filename='images/p2.jpg')}}" alt="Rayla"/>
                           <figcaption>
                             Kadr z serialu <strong>The Dragon Prince</strong>, walcząca Rayla
                           </figcaption>
@@ -226,6 +226,6 @@
             </a>
         </div>
     </footer>
-  <script src="{{url_for('static', filename='scripts/script.js'></script>
+  <script src="{{url_for('static', filename='scripts/script.js')}}></script>
 </body>
 </html>
