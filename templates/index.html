@@ -22,10 +22,10 @@
 <link rel="stylesheet" href="./styles/font-awesome.css">
 
 <!-- normalize.css ujednolicenie stylów przegladarki -->
-<link rel="stylesheet" href="./styles/normalize.css">
+<link rel="stylesheet" href="{(url_for('static', filename='styles/normalize.css'))}"/>
 
 <!-- moje style css -->
-<link rel="stylesheet" href="./styles/main.css">
+<link rel="stylesheet" href="{(url_for('static', filename='styles/main.css'))}"/>
     
     <title>moje zainteresowania</title>
 </head>
@@ -226,6 +226,6 @@
             </a>
         </div>
     </footer>
-  <script src="./script.js"></script>
+  <script src="{{url_for('static', filename='scripts/script.js'></script>
 </body>
 </html>
