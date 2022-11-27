@@ -1,5 +1,11 @@
 from datetime import datetime
-from flask import Flask, render_template
+from flask import (
+Flask,
+redirect,
+render_template,
+request,
+url_for,
+)
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -27,3 +33,37 @@ def home():
         "index.html", 
         projects_list=projects
         )
+
+a = (
+    'key': 'value',
+    'title': 'STEM',
+    'category': '',
+    'finished': True,
+)
+
+@app.route("/projects", methods=["POST"])
+def add_project():
+    title = request.form.get("title")
+    category = request.form.get("category")
+    link = request.form.get("link")
+
+    new_project = Project(
+        title-title,
+        category-category,
+        link-link,
+    )
+
+    db.session.add(new_project)
+    db.session.commit()
+    db.session.close()
+    
+    return redirect(url_for('home'))
+
+@app.route("/projects/<int:x>/delete")
+def delete_project(id):
+    project_to_delete = Project.query.get(id)
+
+    db.session.delete(project_to_delete)
+    db.session.commit()
+    db.session.close()
+    return redirect(url_for('home'))
