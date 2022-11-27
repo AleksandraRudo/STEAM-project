@@ -1,0 +1,14 @@
+<section id="projects" class="section section-violet projects-section">
+    <div class="container">
+        <h1> Moje projekty </h1>
+
+        {% if not projects_list %}
+        <h3> Nie mam jeszcze żadnych projektów </h3>
+        {% else %}
+
+        {% for project in p %}
+          <li>{{ project }}</li>
+        {% endfor %}
+
+    </div>
+</section>
