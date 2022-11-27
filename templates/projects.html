@@ -27,10 +27,11 @@
                 {{ project.title }}
                 {{ project.category }}
                 {{ project.created_at }}
-                {{ project.finished }}
+                {% if project.finished %} Ukończony {% else %} Nieukończony
                 {{ project.link }}
+                <a href="/projects//{{ project.id }}/change_status"></a>
                 <a href="/projects/{{ project.id }}/">
-                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-trash"></i>
                 </a>
               </li>
         {% endfor %}

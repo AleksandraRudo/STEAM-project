@@ -31,15 +31,15 @@ def home():
     projects = Project.query.all()
     return render_template(
         "index.html", 
-        projects_list=projects
+        projects_list=projects,
         )
 
 a = (
-    'key': 'value',
-    'title': 'STEM',
-    'category': '',
-    'finished': True,
-)
+    'key': 'value'
+    'title': 'STEM'
+    'category': ''
+    'finished': True
+    )
 
 @app.route("/projects", methods=["POST"])
 def add_project():
@@ -61,9 +61,18 @@ def add_project():
 
 @app.route("/projects/<int:x>/delete")
 def delete_project(id):
-    project_to_delete = Project.query.get(id)
+    project_to_delete = Project.query.get_or_404(id)
 
     db.session.delete(project_to_delete)
     db.session.commit()
     db.session.close()
     return redirect(url_for('home'))
+
+    @app.route("/projects/<int:id>/change_status")
+    def change_status(id):
+        project = Project.query.get_or_404(id)
+
+        project.finished = not project.finished
+
+        db.session.commit()
+        return redirect(url_for('home'))
